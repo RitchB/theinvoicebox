@@ -97,7 +97,7 @@ export default function ClientsList() {
     <Loader />
   ) : (
     <>
-      {!isUserSubscribed && !!clients?.length && <NoSubscriptionAlert />}
+      {!isUserSubscribed && clients?.length > 2 && <NoSubscriptionAlert />}
       <HStack mb={4} justify="space-between">
         <Heading fontSize="2xl">{t('clients.title')}</Heading>
 
@@ -105,7 +105,7 @@ export default function ClientsList() {
           <Button
             size="sm"
             colorScheme="primary"
-            isDisabled={!isUserSubscribed && !!clients?.length}
+            isDisabled={!isUserSubscribed && clients?.length > 2}
             leftIcon={<FaUserPlus />}
             onClick={() => openClientForm(null)}
           >
